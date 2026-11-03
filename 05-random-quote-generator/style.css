@@ -1,0 +1,40 @@
+body {
+  font-family: Georgia, serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.card {
+  width: min(92vw, 560px);
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+blockquote {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+#author { color: #64748b; text-align: right; }
+
+.buttons { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+
+button {
+  padding: 0.6rem 1.1rem;
+  font-size: 1rem;
+  font-family: system-ui, sans-serif;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover { background: #f8fafc; }
+#copied { color: #16a34a; font-family: system-ui, sans-serif; }
