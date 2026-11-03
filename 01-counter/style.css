@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.card {
+  text-align: center;
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+#count {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1.5rem;
+}
+
+#count.positive { color: #16a34a; }
+#count.negative { color: #dc2626; }
+
+.buttons { display: flex; gap: 0.75rem; }
+
+button {
+  padding: 0.6rem 1.1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover { background: #f8fafc; }
