@@ -1,0 +1,57 @@
+body {
+  font-family: system-ui, sans-serif;
+  display: grid;
+  place-items: start center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 4rem;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.card {
+  width: min(92vw, 480px);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+form { display: flex; gap: 0.5rem; }
+
+input {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover { background: #f8fafc; }
+.filters button.active { background: #0f172a; color: #fff; }
+
+ul { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+li span { flex: 1; cursor: pointer; }
+li.done span { text-decoration: line-through; color: #94a3b8; }
+li .delete { border: none; color: #dc2626; font-size: 1.25rem; padding: 0 0.25rem; }
+
+.filters { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+#empty-message { color: #64748b; }
