@@ -1,0 +1,44 @@
+body {
+  font-family: system-ui, sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.card {
+  width: min(92vw, 420px);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.output-row { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+
+#password {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-family: ui-monospace, monospace;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+}
+
+label { display: block; margin-bottom: 0.75rem; color: #475569; }
+label input[type="range"] { display: block; width: 100%; margin-top: 0.35rem; }
+
+button {
+  padding: 0.6rem 1.1rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover { background: #f8fafc; }
+button.primary { background: #0f172a; color: #fff; width: 100%; margin-top: 0.5rem; }
+#copied { color: #16a34a; }
