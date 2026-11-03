@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.card {
+  width: min(92vw, 400px);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+label { display: block; margin-bottom: 1rem; color: #475569; }
+
+input, select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.35rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+}
+
+dl { margin: 1.5rem 0 0; }
+dl div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-top: 1px solid #e2e8f0;
+}
+dd { margin: 0; font-weight: 700; }

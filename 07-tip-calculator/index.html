@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Tip Calculator</h1>
+    <label>
+      Bill amount ($)
+      <input id="bill" type="number" min="0" step="0.01" placeholder="0.00">
+    </label>
+    <label>
+      Tip
+      <select id="tip-percent">
+        <option value="0.10">10%</option>
+        <option value="0.15" selected>15%</option>
+        <option value="0.20">20%</option>
+        <option value="0.25">25%</option>
+      </select>
+    </label>
+    <label>
+      People splitting
+      <input id="people" type="number" min="1" step="1" value="1">
+    </label>
+    <dl>
+      <div><dt>Tip</dt><dd id="tip-amount">$0.00</dd></div>
+      <div><dt>Total</dt><dd id="total">$0.00</dd></div>
+      <div><dt>Per person</dt><dd id="per-person">$0.00</dd></div>
+    </dl>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
