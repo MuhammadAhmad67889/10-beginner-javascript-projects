@@ -1,5 +1,7 @@
 # 10 Beginner JavaScript Projects
 
+**Try them live:** https://muhammadahmad67889.github.io/10-beginner-javascript-projects/
+
 Ten small projects I built to learn JavaScript properly — one concept at a time.
 No frameworks, no build step, no API keys. Every project runs on its own:
 just open its `index.html` in a browser.
