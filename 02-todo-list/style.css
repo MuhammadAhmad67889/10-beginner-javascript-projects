@@ -1,57 +1,125 @@
+/* Classic theme: ink on paper, one accent, generous spacing.
+   The JavaScript only reads ids and classes, so class names stay as they are. */
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   display: grid;
   place-items: start center;
   min-height: 100vh;
   margin: 0;
   padding-top: 4rem;
-  background: #f1f5f9;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
   color: #0f172a;
 }
+
+/* Back to the project list. Fixed so it never disturbs the centred card. */
+.back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.back:hover { color: #0f172a; }
 
 .card {
   width: min(92vw, 480px);
   background: #fff;
   padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
 }
 
 form { display: flex; gap: 0.5rem; }
 
-input {
+/* Scoped to the form: the checkboxes inside each todo row are inputs
+   too, and must not stretch like the text field. */
+form input {
   flex: 1;
-  padding: 0.6rem;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
   font-size: 1rem;
   border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 button {
+  min-height: 2.75rem;
   padding: 0.6rem 1rem;
+  font: inherit;
   font-size: 1rem;
   border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: #fff;
   cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
 }
 
 button:hover { background: #f8fafc; }
-.filters button.active { background: #0f172a; color: #fff; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
 
-ul { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+/* The submit button is the one action that adds something. */
+form button[type="submit"] {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+}
+
+form button[type="submit"]:hover { background: #1e293b; }
+
+.filters { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+
+.filters button { border-radius: 999px; }
+.filters button.active { background: #0f172a; border-color: #0f172a; color: #fff; }
+
+ul { list-style: none; padding: 0; margin: 1.25rem 0 0; }
 
 li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.6rem 0;
+  padding: 0.7rem 0.25rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
+li:last-child { border-bottom: none; }
+
 li span { flex: 1; cursor: pointer; }
 li.done span { text-decoration: line-through; color: #94a3b8; }
-li .delete { border: none; color: #dc2626; font-size: 1.25rem; padding: 0 0.25rem; }
 
-.filters { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
-#empty-message { color: #64748b; }
+li .delete {
+  min-height: 0;
+  border: none;
+  color: #dc2626;
+  font-size: 1.25rem;
+  padding: 0 0.25rem;
+}
+
+li .delete:hover { background: transparent; color: #b91c1c; }
+
+#empty-message { color: #64748b; margin: 1.5rem 0 0; }
