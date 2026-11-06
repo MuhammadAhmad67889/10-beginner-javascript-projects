@@ -1,44 +1,99 @@
+/* Classic theme: ink on paper, one accent, generous spacing.
+   The JavaScript only reads ids and classes, so class names stay as they are. */
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   display: grid;
   place-items: center;
   min-height: 100vh;
   margin: 0;
-  background: #f1f5f9;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
   color: #0f172a;
 }
 
+/* Back to the project list. Fixed so it never disturbs the centred card. */
+.back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.back:hover { color: #0f172a; }
+
 .card {
-  width: min(92vw, 420px);
+  width: min(92vw, 440px);
   background: #fff;
   padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
 }
 
 .output-row { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
 
 #password {
   flex: 1;
-  padding: 0.6rem;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
   font-size: 1rem;
-  font-family: ui-monospace, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+}
+
+#password:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 label { display: block; margin-bottom: 0.75rem; color: #475569; }
-label input[type="range"] { display: block; width: 100%; margin-top: 0.35rem; }
+label input[type="range"] { display: block; width: 100%; margin-top: 0.35rem; accent-color: #0f172a; }
+label input[type="checkbox"] { accent-color: #0f172a; }
 
 button {
+  min-height: 2.75rem;
   padding: 0.6rem 1.1rem;
+  font: inherit;
   font-size: 1rem;
   border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: #fff;
   cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
 }
 
 button:hover { background: #f8fafc; }
-button.primary { background: #0f172a; color: #fff; width: 100%; margin-top: 0.5rem; }
-#copied { color: #16a34a; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+
+/* Generate is the one action that makes something. */
+button.primary {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+button.primary:hover { background: #1e293b; }
+
+#copied { color: #16a34a; margin: 1rem 0 0; }
