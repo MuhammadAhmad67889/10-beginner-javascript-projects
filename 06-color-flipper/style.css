@@ -1,8 +1,11 @@
 /* Classic theme: ink on paper, one accent, generous spacing.
-   The JavaScript sets the page background itself, so the card has to
-   stay readable over any colour. Class names stay as they are. */
+   Accent for this project: teal. The JavaScript sets the page
+   background itself, so the card has to stay readable over any
+   colour. Class names stay as they are. */
 
 * { box-sizing: border-box; }
+
+:root { --accent: #0d9488; }
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -33,6 +36,12 @@ body {
 
 .back:hover { color: #0f172a; }
 
+/* The card fades and rises in once, when the page loads. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .card {
   width: min(92vw, 440px);
   text-align: center;
@@ -41,6 +50,7 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.08);
+  animation: rise 0.45s ease-out both;
 }
 
 h1 {
@@ -79,20 +89,25 @@ button {
   border-radius: 0.75rem;
   background: #fff;
   cursor: pointer;
-  transition: background 0.15s, transform 0.05s;
+  transition: background 0.15s, transform 0.1s;
 }
 
-button:hover { background: #f8fafc; }
+button:hover { background: #f8fafc; transform: translateY(-1px); }
 button:active { transform: translateY(1px); }
-button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Flip is the main action. */
 #flip {
-  background: #0f172a;
-  border-color: #0f172a;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
-#flip:hover { background: #1e293b; }
+#flip:hover { background: #0f766e; }
 
 #copied { color: #16a34a; }
+
+/* Motion is decoration: switch it off for anyone who asks for less. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
