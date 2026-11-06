@@ -1,32 +1,94 @@
+/* Classic theme: ink on paper, one accent, generous spacing.
+   The JavaScript only reads ids and classes, so class names stay as they are. */
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   display: grid;
   place-items: center;
   min-height: 100vh;
   margin: 0;
-  background: #f1f5f9;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
   color: #0f172a;
 }
 
-.card {
-  text-align: center;
-  background: #fff;
-  padding: 2.5rem 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+/* Back to the project list. Fixed so it never disturbs the centred card. */
+.back {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
-#score { font-size: 1.25rem; font-weight: 700; }
-.choices { display: flex; gap: 0.75rem; justify-content: center; margin: 1.5rem 0; }
+.back:hover { color: #0f172a; }
+
+.card {
+  width: min(92vw, 480px);
+  text-align: center;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+#score {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin: 1rem 0 0;
+}
+
+/* The three choices are the game, so they are the biggest buttons. */
+.choices {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.choices button {
+  flex: 1;
+  min-height: 3.5rem;
+  padding: 0.75rem 0.5rem;
+  font-size: 1.05rem;
+}
 
 button {
+  min-height: 2.75rem;
   padding: 0.6rem 1.1rem;
+  font: inherit;
   font-size: 1rem;
   border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: #fff;
   cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
 }
 
 button:hover { background: #f8fafc; }
-#result { min-height: 1.5em; font-size: 1.1rem; }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+
+#result { min-height: 1.5em; font-size: 1.1rem; margin: 0 0 1.5rem; }
+
+#reset {
+  font-size: 0.875rem;
+  color: #64748b;
+  min-height: 2.25rem;
+}
