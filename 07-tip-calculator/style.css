@@ -1,7 +1,10 @@
 /* Classic theme: ink on paper, one accent, generous spacing.
-   The JavaScript only reads ids and classes, so class names stay as they are. */
+   Accent for this project: emerald. The JavaScript only reads ids and
+   classes, so class names stay as they are. */
 
 * { box-sizing: border-box; }
+
+:root { --accent: #059669; }
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -31,6 +34,12 @@ body {
 
 .back:hover { color: #0f172a; }
 
+/* The card fades and rises in once, when the page loads. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .card {
   width: min(92vw, 420px);
   background: #fff;
@@ -38,6 +47,7 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.08);
+  animation: rise 0.45s ease-out both;
 }
 
 h1 {
@@ -70,8 +80,8 @@ input, select {
 
 input:focus, select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
 }
 
 /* The results sit in their own panel so they read as the answer. */
@@ -96,4 +106,9 @@ dt { color: #475569; }
 dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 /* Per person is the number people actually split by. */
-dl div:last-child dd { font-size: 1.25rem; }
+dl div:last-child dd { font-size: 1.25rem; color: var(--accent); }
+
+/* Motion is decoration: switch it off for anyone who asks for less. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
