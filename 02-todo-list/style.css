@@ -1,7 +1,10 @@
 /* Classic theme: ink on paper, one accent, generous spacing.
-   The JavaScript only reads ids and classes, so class names stay as they are. */
+   Accent for this project: green. The JavaScript only reads ids and
+   classes, so class names stay as they are. */
 
 * { box-sizing: border-box; }
+
+:root { --accent: #16a34a; }
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -32,6 +35,12 @@ body {
 
 .back:hover { color: #0f172a; }
 
+/* The card fades and rises in once, when the page loads. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .card {
   width: min(92vw, 480px);
   background: #fff;
@@ -39,6 +48,7 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 32px rgba(15, 23, 42, 0.08);
+  animation: rise 0.45s ease-out both;
 }
 
 h1 {
@@ -63,8 +73,8 @@ form input {
 
 form input:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
 }
 
 button {
@@ -76,26 +86,26 @@ button {
   border-radius: 0.75rem;
   background: #fff;
   cursor: pointer;
-  transition: background 0.15s, transform 0.05s;
+  transition: background 0.15s, transform 0.1s;
 }
 
-button:hover { background: #f8fafc; }
+button:hover { background: #f8fafc; transform: translateY(-1px); }
 button:active { transform: translateY(1px); }
-button:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* The submit button is the one action that adds something. */
 form button[type="submit"] {
-  background: #0f172a;
-  border-color: #0f172a;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
-form button[type="submit"]:hover { background: #1e293b; }
+form button[type="submit"]:hover { background: #15803d; }
 
 .filters { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
 
 .filters button { border-radius: 999px; }
-.filters button.active { background: #0f172a; border-color: #0f172a; color: #fff; }
+.filters button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 ul { list-style: none; padding: 0; margin: 1.25rem 0 0; }
 
@@ -120,6 +130,11 @@ li .delete {
   padding: 0 0.25rem;
 }
 
-li .delete:hover { background: transparent; color: #b91c1c; }
+li .delete:hover { background: transparent; color: #b91c1c; transform: none; }
 
 #empty-message { color: #64748b; margin: 1.5rem 0 0; }
+
+/* Motion is decoration: switch it off for anyone who asks for less. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
