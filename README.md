@@ -1,8 +1,8 @@
-# 10 Beginner JavaScript Projects
+# 11 Beginner JavaScript Projects
 
 **Try them live:** https://muhammadahmad67889.github.io/10-beginner-javascript-projects/
 
-Ten small projects I built to learn JavaScript properly — one concept at a time.
+Eleven small projects I built to learn JavaScript properly — one concept at a time.
 No frameworks, no build step, no API keys. Every project runs on its own:
 just open its `index.html` in a browser.
 
@@ -20,6 +20,7 @@ just open its `index.html` in a browser.
 | 08 | [Password Generator](./08-password-generator) | Strings, randomness, form controls |
 | 09 | [Rock Paper Scissors](./09-rock-paper-scissors) | Game logic, score keeping |
 | 10 | [Quiz App](./10-quiz-app) | Rendering from data, progress, scoring |
+| 11 | [Lamp Login](./11-lamp-login) | GSAP animation, Web Audio hum, drag the pull cord |
 
 ## How to run
 
